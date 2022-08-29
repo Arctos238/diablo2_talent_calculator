@@ -57,7 +57,7 @@ public class OutputCharacterManager extends ObjectOutputStream {
 
 	private SkillTree createSkillTree() {
 		String skillTreeName = stringInput.next();
-		int numberOf
+		int numberOf;
 		
 		
 		ArrayList<Skill> skills = createSkills();
