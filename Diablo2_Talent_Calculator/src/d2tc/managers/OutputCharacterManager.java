@@ -21,7 +21,7 @@ public class OutputCharacterManager extends ObjectOutputStream {
 
 		stringInput = new Scanner(System.in);
 		intScanner = new Scanner(System.in);
-				
+
 		String characterName = stringInput.next();
 
 		FileOutputStream fos = new FileOutputStream("res\\character_object_files\\" + characterName + ".bin");
@@ -58,24 +58,57 @@ public class OutputCharacterManager extends ObjectOutputStream {
 	}
 
 	private SkillTree createSkillTree() {
+		System.out.print("Name of Skill Tree: ");
 		String skillTreeName = stringInput.next();
-		int numberOf;
-		
-		
+
 		ArrayList<Skill> skills = createSkills();
 		SkillTree skillTree = new SkillTree(skillTreeName, skills);
-		
+
 		return skillTree;
 	}
 
 	private ArrayList<Skill> createSkills() {
 		ArrayList<Skill> skills = new ArrayList<>();
-		
-		for (int i = 0; i < NUM_OF_SKILLS; i++) {
-			
+
+		System.out.print("How many Buff Skills in this Tree: ");
+		int numberOfBuffSkills = intScanner.nextInt();
+
+		for (int i = 0; i < numberOfBuffSkills; i++) {
+			BuffSkill buffSkill = createBuffSkill();
+			skills.add(buffSkill);
 		}
-		
+
+		System.out.print("How many Debuff Skills in this Tree?");
+		int numberOfDebuffSkills = intScanner.nextInt();
+
+		for (int i = 0; i < numberOfDebuffSkills; i++) {
+			DebuffSkill debuffSkill = createDebuffSkill();
+			skills.add(debuffSkill);
+		}
+
+		System.out.print("How many Damage Skills in this Tree?");
+		int numberOfDamageSkills = intScanner.nextInt();
+
+		for (int i = 0; i < numberOfDamageSkills; i++) {
+			DamageSkill damageSkill = createDamageSkill();
+			skills.add(damageSkill);
+		}
 		return skills;
+	}
+
+	private DamageSkill createDamageSkill() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private DebuffSkill createDebuffSkill() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private BuffSkill createBuffSkill() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public static void main(String[] args) throws SecurityException, IOException {
