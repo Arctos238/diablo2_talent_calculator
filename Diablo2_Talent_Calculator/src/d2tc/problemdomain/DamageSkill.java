@@ -4,23 +4,17 @@ import java.util.HashMap;
 
 public class DamageSkill extends Skill {
 	String damageType;
-	int minDamage;
-	int maxDamage;
+	String damageValue;
 	int manaCost;
-	HashMap<Integer, Integer> minDmgValues = new HashMap<Integer, Integer>();
-	HashMap<Integer, Integer> maxDmgValues = new HashMap<Integer, Integer>();
+	HashMap<Integer, String> damageValues = new HashMap<Integer, String>();
 	private boolean areaOfEffect;
 
-	public DamageSkill(String talentName, String talentDescription, int numberOfPointsInTalent, int requiredLevel,			
-		int minDamage, int maxDamage, String damageType, int manaCost, boolean areaOfEffect, HashMap<Integer, Integer> minDmgValues, HashMap<Integer, Integer> maxDmgValues) {
-		super(talentName, talentDescription, numberOfPointsInTalent, requiredLevel);
-		this.minDmgValues = minDmgValues;
-		this.maxDmgValues = maxDmgValues;
-		setMinDamage();
-		setMaxDamage();
+	public DamageSkill(String skillName, String skillDescription, int numberOfPointsInTalent, int requiredLevel,			
+		String damageType, int manaCost, boolean areaOfEffect, HashMap<Integer, Integer> minDmgValues, HashMap<Integer, Integer> maxDmgValues) {
+		super(skillName, skillDescription, numberOfPointsInTalent, requiredLevel);
+		setDamageValues();
+		this.damageValue = getDamageValue();
 		this.damageType = damageType;
-		this.minDamage = getMinDamage();
-		this.maxDamage = getMaxDamage();
 		this.manaCost = manaCost;
 		this.areaOfEffect = areaOfEffect;
 	}
@@ -33,27 +27,15 @@ public class DamageSkill extends Skill {
 		this.damageType = damageType;
 	}
 
-	public int getMinDamage() {
-		return minDamage;
+	public String getDamageValue() {
+		return damageValue;
 	}
 
-	public void setMinDamage() {
+	public void setDamageValues() {
 		if(this.getCurrentSkillLevel() == 0) {
-			this.minDamage = minDmgValues.get(1);
+			this.damageValue = damageValues.get(1);
 		} else {
-			this.minDamage = minDmgValues.get(this.getCurrentSkillLevel());
-		}
-	}
-
-	public int getMaxDamage() {
-		return maxDamage;
-	}
-
-	public void setMaxDamage() {
-		if(this.getCurrentSkillLevel() == 0) {
-			this.maxDamage = minDmgValues.get(1);
-		} else {
-			this.maxDamage = maxDmgValues.get(this.getCurrentSkillLevel());
+			this.damageValue = damageValues.get(this.getCurrentSkillLevel());
 		}
 	}
 

@@ -21,7 +21,8 @@ public class OutputCharacterManager extends ObjectOutputStream {
 
 		stringInput = new Scanner(System.in);
 		intScanner = new Scanner(System.in);
-
+		
+		System.out.print("Character Name: ");
 		String characterName = stringInput.next();
 
 		FileOutputStream fos = new FileOutputStream("res\\character_object_files\\" + characterName + ".bin");
