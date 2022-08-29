@@ -3,15 +3,15 @@ package d2tc.problemdomain;
 import java.util.HashMap;
 
 public class DamageSkill extends Skill {
-	String damageType;
-	String damageValue;
-	int manaCost;
-	HashMap<Integer, String> damageValues = new HashMap<Integer, String>();
+	private String damageType;
+	private String damageValue;
+	private int manaCost;
+	private HashMap<Integer, String> damageValues = new HashMap<Integer, String>();
 	private boolean areaOfEffect;
 
-	public DamageSkill(String skillName, String skillDescription, int numberOfPointsInTalent, int requiredLevel,			
+	public DamageSkill(String skillName, String skillDescription, int requiredLevel,			
 		String damageType, int manaCost, boolean areaOfEffect, HashMap<Integer, Integer> minDmgValues, HashMap<Integer, Integer> maxDmgValues) {
-		super(skillName, skillDescription, numberOfPointsInTalent, requiredLevel);
+		super(skillName, skillDescription, requiredLevel);
 		setDamageValues();
 		this.damageValue = getDamageValue();
 		this.damageType = damageType;

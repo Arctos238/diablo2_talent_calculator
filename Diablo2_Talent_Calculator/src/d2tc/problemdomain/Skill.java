@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 
 public abstract class Skill extends Button {
 	private final int MAX_SKILL_POINTS = 20;
+	private final int STARTING_SKILL_LEVEL = 0;
 	private String skillName;
 	private String skillDescription;
 	private int numberOfPointsInSkill;
@@ -14,12 +15,11 @@ public abstract class Skill extends Button {
 		return MAX_SKILL_POINTS;
 	}
 
-	public Skill(String skillName, String skillDescription, int numberOfPointsInSkill, int requiredLevel) {
+	public Skill(String skillName, String skillDescription, int requiredLevel) {
 		this.skillName = skillName;
 		this.skillDescription = skillDescription;
-		this.numberOfPointsInSkill = numberOfPointsInSkill;
+		this.numberOfPointsInSkill = STARTING_SKILL_LEVEL;
 		this.requiredLevel = requiredLevel;
-		this.currentSkillLevel = 0;
 	}
 
 	public String getSkillName() {

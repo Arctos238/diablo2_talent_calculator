@@ -3,11 +3,11 @@ package d2tc.problemdomain;
 import java.util.ArrayList;
 
 public class DebuffSkill extends Skill {
-	ArrayList<Debuff> debuffs;
+	private ArrayList<Debuff> debuffs;
 
-	public DebuffSkill(String talentName, String talentDescription, int numberOfPointsInTalent, int requiredLevel,
+	public DebuffSkill(String skillName, String skillDescription, int requiredLevel,
 			ArrayList<Debuff> debuffs) {
-		super(talentName, talentDescription, numberOfPointsInTalent, requiredLevel);
+		super(skillName, skillDescription, requiredLevel);
 		this.debuffs = debuffs;
 	}
 }

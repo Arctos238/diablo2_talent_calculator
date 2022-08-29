@@ -3,11 +3,11 @@ package d2tc.problemdomain;
 import java.util.ArrayList;
 
 public class BuffSkill extends Skill {
-	ArrayList<Buff> buffs;
+	private ArrayList<Buff> buffs;
 
-	public BuffSkill(String talentName, String talentDescription, int numberOfPointsInTalent, int requiredLevel,
+	public BuffSkill(String skillName, String skillDescription, int requiredLevel,
 			ArrayList<Buff> buffs) {
-		super(talentName, talentDescription, numberOfPointsInTalent, requiredLevel);
+		super(skillName, skillDescription, requiredLevel);
 		this.buffs = buffs;
 	}
 }
