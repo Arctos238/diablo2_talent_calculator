@@ -10,8 +10,9 @@ public class DamageSkill extends Skill {
 	private boolean areaOfEffect;
 
 	public DamageSkill(String skillName, String skillDescription, int requiredLevel,			
-		String damageType, int manaCost, boolean areaOfEffect, HashMap<Integer, Integer> minDmgValues, HashMap<Integer, Integer> maxDmgValues) {
+		String damageType, int manaCost, boolean areaOfEffect, HashMap<Integer, String> damageValues) {
 		super(skillName, skillDescription, requiredLevel);
+		this.damageValues = damageValues;
 		setDamageValues();
 		this.damageValue = getDamageValue();
 		this.damageType = damageType;
